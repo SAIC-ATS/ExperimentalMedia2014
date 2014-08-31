@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  Posts
+title: Posts
 ---
 
 <ul class="list-unstyled">
