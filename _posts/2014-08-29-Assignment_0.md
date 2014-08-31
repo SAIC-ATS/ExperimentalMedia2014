@@ -16,7 +16,7 @@ due:        2014-09-05
 	- Processing ([latest version](http://processing.org/download/)) 
 		- _Why?! We may occasionally cross-reference our oF work with Processing._
 	- Fritzing ([latest version](http://fritzing.org/download/)) 
-	- Git (follow the instructions for your platform here: http://git-scm.com/downloads)
+	- Git (follow the instructions for your platform here: [http://git-scm.com/downloads](http://git-scm.com/downloads))
 2. Sign up!
 	- Sign up for [http://github.com](http://github.com).  Just get a free account.
 	- Sign up for an account at [http://talk.olab.io](http://talk.olab.io).
