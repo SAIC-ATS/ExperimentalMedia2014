@@ -21,6 +21,8 @@ due:        2014-09-05
 	- Sign up for [http://github.com](http://github.com).  Just get a free account.
 	- Sign up for an account at [http://talk.olab.io](http://talk.olab.io).
 3. Set up!
+	- Read chapter 11 _Version control with Git
+_ of [ofBook](https://github.com/openframeworks/ofBook/releases/download/0.2.0/ofBook.pdf).
 	- The goal of this week is to come prepared to work with "Git".  We will be using git extensively in the class to share code, make blog posts, and and leave feedback for each other.  Git is used extensively in the creative coding community, and is an extremely useful tool to understand.
 	- To begin, follow [this setup guide](https://help.github.com/articles/set-up-git) for your platform.
 	- Next, please "fork" the class repository (found [here](https://github.com/bakercp/ExperimentalMedia2014)).  To learn more about "forking" a repository, read [this article](https://help.github.com/articles/fork-a-repo).  (Basically, it's as easy as pressing the "Fork" button once you have signed up for github).
