@@ -5,21 +5,20 @@ title:  Syllabus
 
 ## Experimental Media, ATS 5010
 
-Apple
-:   Pomaceous fruit of plants of the genus Malus in 
-    the family Rosaceae.
+Semester, Year
+:   Fall, 2014
 
-Orange
-:   The fruit of an evergreen tree of the genus Citrus.
+Meeting Times
+:   Friday 9am-12pm
 
+Meeting Location
+:   MacLean 416
 
-|                  |                                                           |
-|-----------------:|:----------------------------------------------------------|
-|   Semester, Year | Fall, 2014                                                |
-|    Meeting Times | Friday 9am-12pm                                           |
-| Meeting Location | MacLean 416                                               |
-|       Instructor | [Christopher Baker](http://christopherbaker.net)          |
-|               TA | [Michael West Hadley](http://www.mikewesthad.com/)        |
+Instructor
+:   [Christopher Baker](http://christopherbaker.net)
+
+TA
+:   [Michael West Hadley](http://www.mikewesthad.com/)
 
 --------------------------------------------------------------------------------
 
