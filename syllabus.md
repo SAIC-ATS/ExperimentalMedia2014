@@ -4,12 +4,14 @@ title:  Syllabus
 ---
 
 ## Experimental Media, ATS 5010
-__Semester / Year:__ Fall, 2014 |
-__Meeting Times:__ Friday 9am-12pm |
-__Location:__ MacLean 416 | 
-__Instructor:__ [Christopher Baker](http://christopherbaker.net) |
-__Contact Info:__ [cbaker2@saic.edu](mailto:cbaker2@saic.edu) |
-__Office Hours:__ By Appointment | __Office:__ MacLean 403
+
+|                  |                                                           |
+|-----------------:|:----------------------------------------------------------|
+|   Semester, Year | Fall, 2014                                                |
+|    Meeting Times | Friday 9am-12pm                                           |
+| Meeting Location | MacLean 416                                               |
+|       Instructor | [Christopher Baker](http://christopherbaker.net)          |
+|               TA | [Michael West Hadley](http://www.mikewesthad.com/)        |
 
 --------------------------------------------------------------------------------
 
