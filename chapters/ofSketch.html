@@ -38,10 +38,10 @@
 <div class="figure">
 <img alt="ofSketch Screenshot" src="..\images\ofSketch/images/ofSketch.jpg"/><span class="caption">ofSketch Screenshot</span>
 </div>
-<h1 id="what-is-ofsketch">What is ofSketch?</h1>
+<h2 id="what-is-ofsketch">What is ofSketch?</h2>
 <p><a href="https://github.com/olab-io/ofSketch" target="_blank">ofSketch</a> is a barebones development environment created specifically for building and running openFrameworks sketches. It is a "plug and play" openFrameworks application that allows you to spend more time coding and less time with configuration.</p>
 <p>One of its main goals in developing ofSketch is to decrease the openFrameworks barrier-to-entry. For this reason, it should be noted that ofSketch is primary geared towards beginners and new coders.</p>
-<h2 id="what-is-ofsketch-good-for">What is ofSketch Good For?</h2>
+<h3 id="what-is-ofsketch-good-for">What is ofSketch Good For?</h3>
 <ul>
 <li>Teaching/Learning openFrameworks</li>
 <li>Making <a href="http://openframeworks.cc/tutorials/first%20steps/002_openFrameworks_for_processing_users.html" target="_blank">the leap</a> from <a href="http://processing.org" target="_blank">Processing</a> to openFrameworks</li>
@@ -49,13 +49,13 @@
 <li>Creating code snippets, experiments, and examples</li>
 <li>Running openFrameworks on the <a href="http://www.raspberrypi.org/" target="_blank">Raspberry Pi</a></li>
 </ul>
-<h2 id="what-is-ofsketch-not-good-for">What is ofSketch NOT Good For?</h2>
+<h3 id="what-is-ofsketch-not-good-for">What is ofSketch NOT Good For?</h3>
 <ul>
 <li>Replacing a professional IDE like Xcode, Code::Blocks, Visual Studio, etc...</li>
 <li>Building sizable projects or applications</li>
 </ul>
 <p>If you've read Roy's <em>openFrameworks Project Structure and Setup</em> chapter, ofSketch should be an easy step sideways. That chapter gave an overview of installing and using openFrameworks with different professional IDEs. If you skipped ahead to this chapter, that is okay too! With ofSketch you don't have to worry about downloading openFrameworks or using Project Generator. All you need to do is download the ofSketch App.</p>
-<h1 id="download-install">Download &amp; Install</h1>
+<h2 id="download-install">Download &amp; Install</h2>
 <p>Visit the ofSketch <a href="https://github.com/olab-io/ofSketch/releases" target="_blank">releases page</a> to download the ofSketch app for your platform.</p>
 <p>ofSketch comes packaged with the following files:</p>
 <ul>
@@ -69,9 +69,9 @@
 <p>It is important for the ofSketch app and the "data" folder to stay in the same directory. I recommend that you leave the app in the uncompressed folder that you download.</p>
 <p>Double-click ofSketch to launch the editor. If you are on a Mac, you may need to right click the app, and then press "Open".</p>
 <p>That's it! Go code.</p>
-<h1 id="getting-started-with-ofsketch">Getting Started With ofSketch</h1>
+<h2 id="getting-started-with-ofsketch">Getting Started With ofSketch</h2>
 <p>Code in ofSketch looks a bit different than what you may be used to with openFrameworks. If you are new to openFrameworks, great! We think that ofSketch code is easier to learn than normal<code>.h</code> and <code>.cpp</code> openFrameworks code.</p>
-<h2 id="ofsketch-style-code">ofSketch Style Code</h2>
+<h3 id="ofsketch-style-code">ofSketch Style Code</h3>
 <p>ofSketch uses "header style" C++, where code implementation is written along with declarations in the header file, instead of the matching <code>.cpp</code> source file. If this doesn't make since to you, no worries. Essentially, this allows us to write simple, easy-to-read code, that is great for beginners!</p>
 <h3 id="project-file">Project File</h3>
 <p>Every ofSketch project starts with an empty project file that looks like this:</p>
@@ -186,14 +186,14 @@ void draw() {
 <h3 id="examples">Examples</h3>
 <p>ofSketch comes packaged with a few basic examples that illustrate the ofSketch code style. Most of them are ported from the regular openFrameworks examples, but there are a few new ones too. Press the "Open Project" button inside ofSketch to open one of them.</p>
 <p>While the above examples highlight the difference between ofSketch code and a normal implementation of C++ code, reviewing the examples should give you a better idea of the general ofSketch style.</p>
-<h1 id="sketch-format">Sketch Format</h1>
+<h2 id="sketch-format">Sketch Format</h2>
 <div class="figure">
 <img alt="Sketch Folder Structure" src="..\images\ofSketch/images/sketch_folder_structure.png"/><span class="caption">Sketch Folder Structure</span>
 </div>
 <p>If you take a look at an app in your Projects folder, you will see a "sketch" directory. This is where all of the ofSketch source files are saved, each with a ".sketch" file extension. When you use ofSketch you are editing the files in this directory. Whenever you run an app from inside ofSketch, all of the files in the "sketch" directory are processed to generate the source files inside of the "src" directory.</p>
 <p>Because of this workflow, it is important to edit ofSketch projects through <strong>ofSketch only</strong>. You could easily get yourself into trouble if you edited an ofSketch project with Xcode (modifying the files in the "src" directory) and then opened it in ofSketch again, pressed the play button, and then overwrote all of our changes.</p>
 <p>Soon, ofSketch will include a fancy project export feature which will allow you to export/import a project to a professional IDE target of your choice. Until then, it is best to just copy a project if you want to edit it with something other than ofSketch.</p>
-<h1 id="remote-coding">Remote Coding</h1>
+<h2 id="remote-coding">Remote Coding</h2>
 <p>One of the highlights of the ofSketch browser editor is the ability to edit code on a remote machine through a network connection. This is especially helpful when coding with the Raspberry Pi, or when tweaking live installation code. The figure below illustrates this in practice.</p>
 <div class="figure">
 <img alt="Remote Coding Diagram" src="..\images\ofSketch/images/remote_setup.png"/><span class="caption">Remote Coding Diagram</span>
@@ -206,7 +206,7 @@ void draw() {
 <p>Once you have the IP address of CPU 1, open a web browser on CPU 2 and visit <code>http://CPU_1_IP_ADDRESS:7890</code>.</p>
 <p>You can now create, edit, and run projects remotely on CPU 2.</p>
 <p><strong>(BD: Is all of this "CPU 1" &amp; "CPU 2" language confusing?)</strong></p>
-<h1 id="future">Future</h1>
+<h2 id="future">Future</h2>
 <p>The ofSketch project is still in its infancy. In fact, at the time of this writing, the most recent ofSketch release is v0.3.2. Undoubtedly the application will change as we approach a stable release, but we are particularly excited about some of the things in store. Below is a list of planned features to watch out for over the next year.</p>
 <h3 id="app-export">App Export</h3>
 <p>App Export will allow users to export executables and resources to use on other computers. These will be presented as a zipped bundle for easier transport.</p>
