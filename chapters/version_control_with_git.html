@@ -214,7 +214,7 @@ nothing to commit, working directory clean</code></pre>
 <p>Hooray, that's the all-clear, all systems green message! It means that the working directory as it is right now is already committed to Git (with the exception of ignored files). It's often a good idea, whenever you start or stop working in a repository, to start from this state, as you will always be able to fall back to this point if things go wrong.</p>
 <p>Now that we have made our initial commit, we can make our first customizations to the OF project. Onwards!</p>
 <h3 id="first-edits">First edits</h3>
-<p>OK, we have a clean slate now, so let's start playing around with our OF project. A programming tutorial wouldn't be complete without saying hello to the world, so let's do that: Open <code>ofApp.cpp</code>, and in the implementation of <code>void ofApp::setup()</code>, add an appropriate message, e.g. <code>cout &lt;&lt; "Hello world!";</code>, and save the file.</p>
+<p>OK, we have a clean slate now, so let's start playing around with our OF project. A programming tutorial wouldn't be complete without saying hello to the world, so let's do that: Open <code>ofApp.cpp</code>, and in the implementation of <code>void ofApp::setup()</code>, add an appropriate message, e.g. <code>cout &lt;&lt; "Hello world";</code>, and save the file.</p>
 <p>We have just made a modification to a file that Git is tracking, so it should pick up on this, right? Let's check, using <code>git status</code> (you hopefully already guessed that part):</p>
 <pre><code>$ git status
 # On branch master
@@ -285,7 +285,7 @@ Switched to a new branch 'celebration'
 $ git branch
 * celebration
   master</code></pre>
-<p>To celebrate, let's add a second message after the "Hello World", e.g. <code>cout &lt;&lt; "Yeah, it works!";</code>. Let's confirm that Git has picked this up, using <code>git diff</code> as before:</p>
+<p>To celebrate, let's add a second message after the "Hello World", e.g. <code>cout &lt;&lt; "Yeah, it works";</code>. Let's confirm that Git has picked this up, using <code>git diff</code> as before:</p>
 <pre><code>$ git diff
 diff --git a/src/ofApp.cpp b/src/ofApp.cpp
 index 8018cf7..59d84fa 100644

@@ -266,8 +266,7 @@ a:active {
 
 .figure img {
 	height: auto;
-	width: auto;
-    max-width: 100%;
+	width: 100%;
 }
 
 .caption {  
