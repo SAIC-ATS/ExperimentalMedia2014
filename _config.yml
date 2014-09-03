@@ -3,4 +3,5 @@ baseurl: /ExperimentalMedia2014
 url: https://github.com/bakercp/ExperimentalMedia2014
 description: Experimental Media, 2014
 timezone: America/Chicago
-
+gems:
+  - jekyll-sitemap
