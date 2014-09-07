@@ -17,6 +17,7 @@ due:        2014-09-12
 2. Set up!
     - Read the [ofSketch](https://github.com/openframeworks/ofBook/blob/master/chapters/ofSketch/chapter.md) chapter of _ofBook_ 
     - Review [terminal commands](https://github.com/olab-io/microWorkshops/blob/master/Terminal_Intro/Terminal_Intro.md)
+    - Read the Arduino Intro for your platform [http://arduino.cc/en/Guide/HomePage](http://arduino.cc/en/Guide/HomePage).  We'll be starting in with Arduino this week.
 3. Command Line Tasks (hint: learn more about command options with `man` - e.g. `man ls`)
     - Download and save this [image](http://2.bp.blogspot.com/-eCCCdBG4TAM/UXOMfNo981I/AAAAAAAAIe0/MqACCbdjNtk/s320/best+puppies+picture34.jpg) file with `curl`.
     - Change the name of the image file above using `mv`.
