@@ -1,3 +1,32 @@
+-   username: bakercp
+    role: Instructor
+    name: Christopher Baker
+    display_name: Christopher Baker
+    gravatar: 8f6ac7bc0f5c26b87269d442d5339206
+    email: info@christopherbaker.net
+    web: http://christopherbaker.net
+    twitter: bakercp
+    github: bakercp
+    bio: Christopher Baker is an Artist.
+
+-   username: semishen
+    role: Grad student
+    name: Shen-Yuan Su
+    display_name: Semi Su
+    email: ssu1@saic.edu
+    github: semishen
+    bio: Semi Su is a Taiwanese.
+    
+-   username: jonrockford
+    role: Student
+    name: Jonathan Rockford
+    display_name: Jonathan Rockford
+    email: jrockf@saic.edu
+    web: http://jonathanrockford.com
+    twitter: jonrockford
+    github: jonrockford
+    bio: Jonathan Rockford is a surveyor of life.
+    
 -   username: cherrysiminlin
     role: Student
     name: Simin Lin
