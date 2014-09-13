@@ -183,7 +183,9 @@ _(subject to change based on incoming skills and experience)_
         - openFrameworks: 
             - Drawing: shapes
         - Arduino: 
-            - Blinking
+            - Blinking!
+            - Analog Input
+            - Digital Input
 
 #### Week 4
 - Bookkeeping
