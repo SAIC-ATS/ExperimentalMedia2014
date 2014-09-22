@@ -16,7 +16,7 @@ due:        2014-09-26
   - Place `pdf` in folder `ExperimentalMedia/people/YOUR_USERNAME/Week5/openFrameworks/SolLewitt1971/bin/*.pdf`
 1.  __Bonus__ Add the ability to modify the program with a potentiometer hooked up to the machine via an arduino.
 1.	__Bonus__ Add the ability to generate a new (and different) rendering of the piece each time the spacebar is pressed.
-  - Place program in folder `ExperimentalMedia/people/YOUR_USERNAME/Week4/openFrameworks/SolLewitt1971Advanced`
+  - Place program in folder `ExperimentalMedia/people/YOUR_USERNAME/Week5/openFrameworks/SolLewitt1971Advanced`
 1.  Add all of your programs and output to your fork of our class repository and issue a pull request to me before class begins.
 1.  Be able to answer the following questions from memory:
   - What do `int`, `long`, `short` and `byte` have in common?  How are they different?
@@ -31,8 +31,8 @@ due:        2014-09-26
   - What programming language forms the foundation of both Arduino and openFrameworks?  Who invented the language and when?
 1. Remember to work together!
 1. Bring your Arduino to class again next week.
-1. Check out the following artists / exhibitions.  Come prepared to present work that inspires you:
-    - [Adam Harvey](http://ahprojects.com/)
-    - [Libs Elliott](http://libselliott.bigcartel.com/)
-    - [Jer Thorp](http://blog.blprnt.com/)
-    - [Talk To Me @ MOMA](http://www.moma.org/interactives/exhibitions/2011/talktome/)
+1. Check out the following artists / exhibitions.
+    - [Julian Oliver](http://julianoliver.com/)
+    - [Leo Villareal](http://villareal.net/)
+    - [Jim Campbell](http://www.jimcampbell.tv)
+    - [Design I/O](http://design-io.com/)
