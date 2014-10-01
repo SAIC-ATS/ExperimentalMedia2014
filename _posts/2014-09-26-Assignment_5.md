@@ -10,6 +10,7 @@ due:        2014-10-01 12:00:00
 
 #### Due Week 6
 
+1. Go to Claire Bishop / Claire Doherty Conversation on October 1st. More [here](http://www.saic.edu/vap/current/claire-bishop-and-claire-doherty.html).
 1. Check out the following studios / firms.
     - [Minima Forms](http://minimaforms.com/)
     - [ART+COM](http://www.artcom.de/)
