@@ -9,6 +9,33 @@
     github: bakercp
     bio: Christopher Baker is an Artist.
 
+-   username: semishen
+    role: Grad student
+    name: Shen-Yuan Su
+    display_name: Semi Su
+    email: ssu1@saic.edu
+    github: semishen
+    bio: Semi Su is a Taiwanese.
+    
+-   username: jonrockford
+    role: Student
+    name: Jonathan Rockford
+    display_name: Jonathan Rockford
+    email: jrockf@saic.edu
+    web: http://jonathanrockford.com
+    twitter: jonrockford
+    github: jonrockford
+    bio: Jonathan Rockford is a surveyor of life.
+    
+-   username: cherrysiminlin
+    role: Student
+    name: Simin Lin
+    display_name: Cherry Simin Lin
+    email: slin7@saic.edu
+    instagram: cherrymemeda
+    github: cherrysiminlin
+    bio: designer-->architect!
+
 -   username: SASHA
     role: Student
     name: Sasha de Koninck

@@ -134,10 +134,13 @@ _(subject to change based on incoming skills and experience)_
 
 #### Week 2
 - Introduction to the command line.
+    - https://github.com/olab-io/microWorkshops/blob/master/Terminal_Intro/Terminal_Intro.md
 - Introduction to git / github.
+    - https://github.com/olab-io/microWorkshops/blob/master/Git_Intro/Git_Intro.md
+    - https://github.com/openframeworks/ofBook/blob/master/chapters/version_control_with_git/chapter.md
 - Introduction to the ofSketch IDE.
-    - https://github.com/olab-io/ofSketch
-
+    - https://github.com/olab-io/
+    - https://github.com/openframeworks/ofBook/blob/master/chapters/ofSketch/chapter.md
 
 #### Week 3
 - Bookkeeping
@@ -180,7 +183,9 @@ _(subject to change based on incoming skills and experience)_
         - openFrameworks: 
             - Drawing: shapes
         - Arduino: 
-            - Blinking
+            - Blinking!
+            - Analog Input
+            - Digital Input
 
 #### Week 4
 - Bookkeeping
