@@ -15,12 +15,12 @@ due:        2014-10-10 12:00:00
 1. Expand our in-class demonstration to send the state of 3 (or more) potentiometers from Arduino to openFrameworks.
 	- Hints:  I recommend sending your values from Arduino in the following format:
 
-	 	```c++
+	 	```
 		VALUE_0,VALUE_1,VALUE_2\r\n
 		```
 		To do this you'll write:
 
-		```c++
+		```
 		Serial.print(VALUE_0);  
 		Serial.print(",");
 		Serial.print(VALUE_1);  
