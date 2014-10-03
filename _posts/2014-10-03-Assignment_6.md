@@ -1,7 +1,7 @@
 ---
 layout:     assignment
 categories: assignment
-title:      Assignment 5
+title:      Assignment 6
 subtitle:   oF + Arduino = heart
 author:     bakercp
 date:       2014-10-03 12:00:00
