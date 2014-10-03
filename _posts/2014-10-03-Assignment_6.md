@@ -18,9 +18,10 @@ due:        2014-10-10 12:00:00
 	 	```
 		VALUE_0,VALUE_1,VALUE_2\r\n
 		```
+		
 		To do this you'll write:
 
-		```
+    	```
 		Serial.print(VALUE_0);  
 		Serial.print(",");
 		Serial.print(VALUE_1);  
