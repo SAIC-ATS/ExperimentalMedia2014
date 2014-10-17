@@ -1,0 +1,11 @@
+void setup() {
+	ofSetWindowShape(255,255);
+	ofBackground(255, 255, 255);
+}
+
+void draw() {
+    for( int i = 0; i <=255; i++){
+            ofSetColor (i, i, i);
+            ofLine(i, 0, i, 255);
+        }
+}
