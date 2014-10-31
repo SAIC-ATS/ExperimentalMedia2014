@@ -1,0 +1,81 @@
+// Have the word "Color" in the center of the screen, use potValue to determine letter spacing
+ofColor background;
+ofColor invertBG;
+ofTrueTypeFont futura;
+ofImage cat;
+ofSerial mySerial;
+string values; // Create a string, could also say std::string values;
+
+float smooth;
+float potValue;
+float lightValue;
+float textValue;
+int w;
+int h;
+
+void setup() {
+	// put your setup code here, to run once
+	w = 800;
+	h = 800;
+	potValue = 0.0;
+	smooth = 0.8;
+	ofSetWindowShape(w, h);
+	ofSetFrameRate(30);
+	ofSetCircleResolution(60);
+	mySerial.setup(0, 9600);
+	
+	cat.loadImage("cat.png");
+	
+	ofTrueTypeFont::setGlobalDpi(72);
+
+}
+
+void update() {
+    
+	background = ofColor::fromHsb(potValue, 255/2, lightValue); // Create variable for background color based on pot and photocell values
+	invertBG = background.getInverted();
+	ofBackground(background); // sets background to black
+	
+	futura.setLetterSpacing(textValue); // set letter spacing based on potValue
+	futura.loadFont("Futura.ttc", lightValue, true, true); // set size based on brightness
+}
+
+void draw() {
+	// put your main code here, to run once each frame:
+	cat.draw(w/2, h/2);	
+	ofSetColor(invertBG); // sets fill color to yellow
+	ofFill(); // fills with background ofSetColor
+	
+	futura.drawString("CATZ", 0, h/3);
+	
+	// Look at each incoming byte until no more are available to look at
+	while (mySerial.available() > 0)
+	{
+	// Read current byte and set it equal to myByte
+	    char myByte;
+	    myByte = mySerial.readByte();
+	    
+	// Look at myByte and see if it is equal to a new line character
+	    if (myByte == '\n') {
+	        vector<string> myValues = ofSplitString(values, ",");
+	        
+           // Split the string and parse it into our variables
+            if (myValues.size() == 2){
+                potValue = (smooth * potValue) + ((1-smooth) * ofToInt(myValues[0]));
+                lightValue = (smooth * lightValue) + ((1-smooth) * ofToInt(myValues[1]));
+            }
+                textValue = ofMap(potValue, 0.0, 1023.0, 0.0, 10.0);
+    	    values = "";
+	    }
+	        // Check to see if it is a carriage return
+	        else if (myByte == '\r') {
+	            }
+	            // If it is not a new line or carriage return, pass variables to values string
+	            else {
+	                values = values + myByte;
+	            }
+	}
+	
+	 std::cout << potValue << "," << lightValue << "," << textValue << std::endl;
+	
+}
