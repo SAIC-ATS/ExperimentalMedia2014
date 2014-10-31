@@ -1,0 +1,56 @@
+ofVideoGrabber grabber;
+ofPixels pixels;
+ofPixels secondpixels;
+ofImage image;
+ofImage secondimage;
+
+int xPosition = 0;
+int secondxPosition = grabber.getWidth();
+
+void setup() {
+    ofSetWindowShape(1280, 720);
+	grabber.initGrabber(1280, 720);
+	pixels.allocate(720, 720, OF_PIXELS_RGBA);
+	
+}
+
+void update(){
+    grabber.update();
+    
+    if (grabber.isFrameNew()){
+        for (int y = 0; y < grabber.getHeight()/2; y++){
+            ofColor pixelFromGrabber = grabber.getPixelsRef().getColor(grabber.getWidth()/2, y);
+            pixels.setColor(xPosition, y, pixelFromGrabber);
+        }
+        image.setFromPixels(pixels);
+        
+        xPosition++;
+        
+        for (int z = grabber.getHeight(); z > grabber.getHeight()/2; z--){
+            ofColor pixelFromGrabber = grabber.getPixelsRef().getColor(grabber.getWidth()/2, z);
+            pixels.setColor(secondxPosition, z, pixelFromGrabber);
+            
+        }
+        secondimage.setFromPixels(secondpixels);
+        secondxPosition--;
+        
+        if(xPosition > pixels.getWidth()){
+            xPosition = 0;
+        }
+     
+    }
+    
+    
+    if (ofGetMousePressed(OF_MOUSE_BUTTON_LEFT)) {            
+            image.clear();
+            xPosition = 0;
+        }
+        
+}
+
+void draw() {
+	grabber.draw(0, 0);
+	image.draw(0,0);
+}
+
+
