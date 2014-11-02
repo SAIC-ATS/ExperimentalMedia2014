@@ -1,0 +1,85 @@
+ofSerial mySerial; //setting up serial to find arduino 
+int potValue = 0; 
+
+
+bool   oneShot; //two states true or false 
+
+
+int alpha;  //declare name of variable
+int width, height; 
+int numPoints;
+
+int circleX[50]; 
+int circleY[50]; 
+int r[50]; 
+int g[50]; 
+int b[50]; 
+
+
+
+void setup() {
+    ofSetWindowShape(800, 800);
+     
+    ofEnableAlphaBlending();   //set up once to allow transparencies 
+    
+    ofSetFrameRate(1);
+    
+    
+    	
+	mySerial.setup(0, 9600); //this function looks for arduino 9600 is connection speed 
+    
+    numPoints = 50; 
+    alpha = 80;  //establish value of variable
+    oneShot =false; 
+  
+
+	width = ofGetWindowWidth(); 
+	height = ofGetWindowHeight();
+
+
+  
+ 
+}
+
+void draw() {
+     ofBackground(120, 120, potValue);
+       	for( int i = 0; i <50; i++) {      //moving this first for loop into setup will make it only happen once 
+	circleX[i]= ofRandom(width); 
+	circleY[i]= ofRandom(height); 
+	r[i] = ofRandom(255); 
+	g[i] = ofRandom(255); 
+	b[i] = ofRandom(255); 
+    }
+  
+
+     
+     
+   for( int i = 0; i < numPoints; i++ ) {  //start at 0, while i is less than 50 count up 1 at a time 
+  // ofLogNotice("draw a new circle") << i; 
+  for (int j = 1; j < numPoints; j++){
+      ofSetColor(r[i], g[i], b[i], alpha);
+   ofCircle( circleX[i], circleY[i], 10); 
+   ofLine(circleX[i], circleY[i], circleX[j], circleY[j]); 
+   }
+   }
+   
+   //for ( int i = 0; i < 2; i ++) { 
+   //    for ( int j = 1; j < 50; j++) {
+   //    ofCircle(i*15, j*15, 5); 
+    //   }
+  // } 
+
+
+}
+
+void keyPressed(int key) 
+{ 
+    if(' ' == key) { 
+        for ( int i = 0; i < numPoints; i++) {
+            
+            r[i] = ofRandom(255); 
+            g[i] = ofRandom(255); 
+            b[i] = ofRandom(255); 
+        } 
+    } 
+} 
