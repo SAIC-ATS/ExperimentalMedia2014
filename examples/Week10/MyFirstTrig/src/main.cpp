@@ -1,0 +1,68 @@
+#line 1 "MyFirstTrig"
+
+#include "ofMain.h"
+
+
+class ofApp: public ofBaseApp
+{
+public:
+
+#line 1 "MyFirstTrig"
+float angleRad;
+float radius;
+
+ofImage image;
+
+void setup() {
+    ofSetWindowShape(400, 400);
+    ofSetFrameRate(60);
+    angleRad = 0;
+    radius = 150;
+    
+    image.loadImage("puppy.jpg");
+}
+
+void draw() {
+    ofBackground(0);
+    
+    angleRad = angleRad + ofDegToRad(0.1);
+    
+    float centerX = ofGetWidth() / 2;
+    float centerY = ofGetHeight() / 2;
+    
+    float x = radius * cos(angleRad) + centerX;
+    float y = radius * sin(angleRad) + centerY;
+
+    ofSetColor(255, 255, 0);
+    ofLine(centerX, centerY, x, y);	
+    
+    
+    float mouseX = ofGetMouseX();
+    float mouseY = ofGetMouseY();
+    
+    ofSetColor(255, 255, 255);
+    ofLine(centerX, centerY, mouseX, mouseY);
+    
+    float mouseAngleRad = atan2(mouseY - centerY, 
+                                mouseX - centerX);
+    
+    ofPushMatrix();
+    ofTranslate(centerX, centerY);    
+    ofRotateZ(ofRadToDeg(mouseAngleRad));
+
+    image.draw(-image.getWidth() / 2, - image.getHeight() / 2);
+    
+    ofPopMatrix();
+    
+    std::cout << ofRadToDeg(mouseAngleRad) << std::endl;
+}
+
+
+};
+
+int main()
+{
+    ofSetupOpenGL(320, 240, OF_WINDOW);
+    ofRunApp(new ofApp());
+}
+

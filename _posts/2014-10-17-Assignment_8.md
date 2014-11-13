@@ -4,8 +4,8 @@ categories: assignment
 title:      Assignment 8
 subtitle:   oF + Arduino = heart
 author:     bakercp
-date:       2014-10-10 12:00:00
-due:        2014-10-17 12:00:00
+date:       2014-10-17 12:00:00
+due:        2014-10-24 12:00:00
 ---
 
 1. Read [Image Processing and Computer Vision](https://github.com/openframeworks/ofBook/blob/master/chapters/image_processing_computer_vision/chapter.md) by Golan Levin.  It is an in-progress chapter, but has some useful information about pixels, slitscan, etc which will be good review of class this week.

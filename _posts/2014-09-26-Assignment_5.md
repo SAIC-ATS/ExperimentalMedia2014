@@ -5,7 +5,7 @@ title:      Assignment 5
 subtitle:   oF + Arduino = heart
 author:     bakercp
 date:       2014-09-26 12:00:00
-due:        2014-10-01 12:00:00
+due:        2014-10-03 12:00:00
 ---
 
 #### Due Week 6
