@@ -1,0 +1,8 @@
+class HeavyParticle{
+
+public:
+
+	HeavyParticle(){
+
+	}	
+};
