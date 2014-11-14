@@ -1,0 +1,8 @@
+class TriangleParticle{
+
+public:
+
+	TriangleParticle(){
+
+	}	
+};
