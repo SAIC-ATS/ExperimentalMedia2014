@@ -11,13 +11,16 @@ public:
 #line 2 "ExpAss09_Particles"
 
 int numBalls; // The total number of balls we'll use.
+int numSquares; 
 
 vector<ofBall> balls; // A collection of all balls.
+// vector<ofSquare> squares;
 
 void setup() {
     ofSetFrameRate(60);
     
     numBalls = 75; // The total number of balls we'll use.
+    // numSquares = 50;
     
     // Enable vertical sync.
     ofSetVerticalSync(true);
@@ -45,6 +48,14 @@ void update() {
         balls[i].update();
     }
     
+    // if (squares.size() < numSquares)
+    // {
+    //     squares.push_back(ofSquare());
+    // }
+    
+    // for (int i = 0; i < squares.size(); i++) {
+    //     squares[i].update();
+    // }
    
 }
 
@@ -53,6 +64,10 @@ void draw() {
     for (int i = 0; i < balls.size(); i++) {
         balls[i].draw();
     }
+    
+    // for (int i = 0; i < squares.size(); i++) {
+    //     squares[i].draw();
+    // }
     
     // Log a message.
     //ofLogNotice("draw()") << ofGetTimestampString();

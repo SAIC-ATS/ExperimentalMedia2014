@@ -24,15 +24,16 @@ public:
     
     //rotation
     float angle;
+    ofVec2f textureVector;
 
-	ofBall(){
+	ofBall() : position(ofGetWidth()/2, ofGetHeight()/2)
+	{
 	    
-        position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
         vel = ofVec2f(ofRandom(-5, 5), ofRandom(-5, 5));
-        acc = ofVec2f(ofRandom(-0.01, 0.01), ofRandom(-0.01, 0.01));
+        acc = ofVec2f(0, ofRandom(0.005, 0.01));
         
         radius = ofRandom(5, 10);
-        color = ofColor(ofRandom(255), ofRandom(255), ofRandom(255), ofRandom(255));
+        color = ofColor(ofRandom(255), ofRandom(255), ofRandom(255), ofRandom(63, 255));
         
         //force
         rebound = ofRandom(0.8, 0.99);
@@ -40,17 +41,29 @@ public:
         
         //load texture
         ofLoadImage (arrow, "arrow.jpg");
+        textureVector = ofVec2f(1, 0);
         
         
 
-	}	
+	}
 	
-	void update() {
+	virtual ~ofBall()
+	{
+	    
+	    
+	    
+	}
+	
+	virtual void update() {
+	    
+	    angle = textureVector.angle(vel);
+	    position += vel;
 	    
 	    vel *= drag; 
         vel += acc;
-        angle = position.angle(vel);
-        position += vel;
+        //ofVec2f zero(ofGetWidth()/2, ofGetHeight()/2);
+        
+        
         
         if ((position.x+radius) > ofGetWidth())
         {
@@ -85,11 +98,11 @@ public:
     
     }
 
-    void draw() {
+    virtual void draw() {
         ofFill();
     
         // Set the fill color for this ball.
-        ofSetColor(color.r, color.g, color.b, 127);
+        ofSetColor(color.r, color.g, color.b, 63);
         
         // Draw the ball.
         ofCircle(position, radius);
