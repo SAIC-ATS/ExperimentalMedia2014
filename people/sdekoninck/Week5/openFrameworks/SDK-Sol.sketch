@@ -1,0 +1,50 @@
+
+
+int squares; // 50 points at random
+int line;// lines connecting squares
+# define squares 50 
+float squaresx[squares];
+float squaresy[squares];
+float squaresw[squares];
+float squaresh[squares];
+
+
+void setup() {
+    
+	ofSetWindowShape(500,500);
+	ofSetBackgroundColor(255);
+	for(int i=0; i<squares; i++)
+    {
+        
+        squaresx[i] = ofRandom(0, ofGetWidth());
+        squaresy[i] = ofRandom(0, ofGetHeight());
+        squaresw[i] = 3;
+        squaresh[i] = 3;
+      
+    }
+//}
+
+//void draw() {
+    
+	ofBeginSaveScreenAsPDF("screenshot-"+ofGetTimestampString()+".pdf", false);
+
+	for(int i=0; i<squares; i++)
+    {
+            
+        ofSetColor(0);
+        ofNoFill();
+        ofRect(squaresx[i], squaresy[i], squaresw[i], squaresh[i]);
+        
+        for(int v=i+1; v<squares; v++)
+     
+        {
+            
+           
+            ofLine(squaresx[i], squaresy[i], squaresx[v], squaresy[v]);
+        } 
+   
+    }
+    
+    ofEndSaveScreenAsPDF();
+	
+}
