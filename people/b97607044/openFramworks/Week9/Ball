@@ -1,0 +1,101 @@
+class Ball{
+    
+public:
+
+ofVec2f position;
+ofVec2f velocity;
+ofColor color;
+
+
+float x;// particle position x.
+float y;// particle position y.
+//giving the particles some velocity. 
+float vx; //velocity in the x direction.
+float vy; //velocity in the y direction.
+
+
+float ax; //Acceleration in the x direction.
+float ay; //Acceleration in the y direction. terminal velocity, acceleration due to the gravity
+
+float radius;
+float rebound; 
+float drag;
+
+/*
+void setup(){
+    ofSetWindowShape (1024,768);
+    ofSetFrameRate (30);
+}
+*/
+
+Ball(){
+    
+    radius = ofRandom(5, 10);
+    position = ofVec3f(ofRandom(radius, ofGetWidth() - radius), 
+                           ofRandom(radius, ofGetHeight() - radius));
+    velocity = ofVec3f(ofRandom(-5, 5), ofRandom(-5, 5));
+    rebound = 0.9; //every time lose 90 present of velocity
+    drag = 0.99;
+    color = ofColor(255, ofRandom(255), 0, 255);
+    
+    /*
+    x = ofGetWidth() /2;// middle of the window in x direction
+    y = ofGetHeight() /2;// middle of the window in y direction   
+    vx= 5; //velocity equals 5 per time
+    vy= -4; //velocity eauals -2 in y position
+    */
+    ax = 0; // no acceleration at x
+    ay = 0.25;
+      
+}
+
+
+void update() {
+    //    if (ofGetMousePressed())
+        
+        // Update the x velocity.
+        if (position.x + radius >= ofGetWidth() ||
+            position.x - radius <= 0) {
+            velocity.x *= -1;
+        }
+        
+        // Update the y velocity.
+        if (position.y + radius >= ofGetHeight() ||
+            position.y - radius <= 0) {
+            velocity.y *= -1;
+        }
+        
+        // Update the position.
+        position += velocity;
+        
+    vx = vx + ax; // add the x acceleration to x velocity == vx+=ax
+    vy = vy + ay;
+    
+    vx = vx * drag;// Take away of a little bit velocity base on drag == vx*=drag
+    vy = vy * drag;// Take away of a little bit velocity base on drag
+    
+    x = x + vx; // add the x veloity component to the x position == x+=vx
+    y = y + vy; // add the y veloity component to the y position
+    
+
+    // || logical OR
+    // && logical AND
+}
+
+
+void draw(){
+   ofBackground(0);
+   ofFill();
+   ofSetColor(color.r, color.g, color.b, 120);//set the fill of the ball
+   ofCircle(position, radius);
+   ofNoFill();
+   ofSetColor(color); //set the color of the ball.
+   ofCircle(position, radius);
+    
+}
+
+
+};
+
+};
+
