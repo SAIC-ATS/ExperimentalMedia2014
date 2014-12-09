@@ -1,12 +1,6 @@
 #line 1 "BaseParticle"
 
 #include "ofMain.h"
-#include "ofMain.h"
-
-
-#line 2 "BaseParticle"
-#line 1 "BaseParticle"
-
 
 
 #line 1 "BaseParticle"
@@ -34,8 +28,9 @@ public:
     virtual void draw()
     {  
         ofFill();
-        ofSetColor(255, 255, 0, 127);
+        ofSetColor(137, 207, 240, 127);
         ofCircle(position.x, position.y, 20);
+        ofLine(position.x, position.y,0,0);
     }
     
     ofVec2f position;

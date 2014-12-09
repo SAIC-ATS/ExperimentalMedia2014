@@ -23,7 +23,7 @@ void update() { // a place to do all the calculations that don't require drawing
 void draw() {
 	
 	video.draw(0,0,H*10, W*6);
-	video.setSpeed(S/10);
+	video.setSpeed(S/20);
 	
 	
 	// Look at each incoming byte until no more are avaialble to look at.

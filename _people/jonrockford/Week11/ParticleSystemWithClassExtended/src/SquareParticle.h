@@ -1,22 +1,17 @@
 #line 1 "SquareParticle"
 
 #include "ofMain.h"
-#include "ofMain.h"
 #include "BaseParticle.h"
 
 
-#line 3 "SquareParticle"
-#line 1 "SquareParticle"
-
-
-
 #line 2 "SquareParticle"
+
 #pragma once
 
 
 class SquareParticle: public BaseParticle {
 public:
-	SquareParticle(): angle(ofRandom(360)) {
+	SquareParticle(): angle(ofRandom(180)) {
 	}	
 	
 	virtual ~SquareParticle()
@@ -28,11 +23,15 @@ public:
         angle += ofRandom(-.4, .4);
         
         ofFill();
-        ofSetColor(0, 255, 0, 127);
+        ofSetColor(255, 0, 120, 120);
         ofPushMatrix();
+        ofLine(position.x, position.y, ofGetWindowWidth(), 0);
         ofTranslate(position.x, position.y);
+        ofRotateY(ofRandom(0, 180));
         ofRotateZ(angle);
-        ofRect(0, 0, 20, 40);
+        ofTriangle(50,10,10,40,90,40);
+        //ofSetColor(255, 153, 0);
+        
         ofPopMatrix();
     }
     
