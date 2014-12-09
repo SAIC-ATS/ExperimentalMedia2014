@@ -1,0 +1,27 @@
+void setup() {
+
+ofSetWindowShape(1200, 300);
+ofDisableAntiAliasing();
+}
+
+void draw() {
+  
+for ( int i = 0; i < 256; i+=1)
+{
+if( i % 2 == 0) { 
+ofSetColor(220, 45, 187);
+}
+else { 
+ofSetColor(60, 145, 130); 
+}
+
+ofLine(i*10, 50, i*10, 100); 
+}
+    
+for (int b = 0; b < 255; b++)
+{
+ofSetColor(80, 60, 40,  b); 
+ofLine(b*10, 200, b*10, 250); 
+}
+}
+

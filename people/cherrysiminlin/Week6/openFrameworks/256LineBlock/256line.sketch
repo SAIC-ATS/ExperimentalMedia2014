@@ -1,0 +1,22 @@
+void setup() {
+	ofSetWindowShape(512,512);
+	ofBackground(255, 255, 255);
+}
+
+void draw() {
+    
+    //multiple 2 because it easier to see each line compared to next to each other
+    
+    for( int i = 0; i <=255; i++){
+        if ( i % 2 == 2 || 4){
+            int g = 0;
+            ofSetColor (255, g, 0);
+            ofLine(i*2, 0, i*2, 512);
+        }
+        if ( i % 2 == 1){
+            int g = 255;
+            ofSetColor(255, g, 0);
+            ofLine(i*2, 0, i*2, 512);
+        }
+    }
+}
