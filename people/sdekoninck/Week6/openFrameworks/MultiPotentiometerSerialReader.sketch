@@ -1,0 +1,59 @@
+ofSerial mySerial;
+std::string myBuffer;
+ int R = 0;
+ int G = 0;
+ int B = 0;
+ int L = 0;
+
+void setup() {
+	// put your setup code here, to run once:
+	mySerial.setup(0,9600);
+	
+}
+
+void draw() {
+    
+    ofBackground(255);
+    
+    ofSetColor(R, G, B, R);
+    ofCircle(L, R, R);
+    
+    ofSetColor(B, G, R, G);
+    ofCircle(G, L, G);
+    
+    ofSetColor(G, R, B, B);
+    ofCircle(B, B, L);
+	// put your main code here, to run once each frame:
+	//look at each incoming byte until no more are available to look at 
+	while(mySerial.available() > 0){
+	    
+	    //read the current byte and set it equal to "myByte"
+	   int myByte = mySerial.readByte();
+	   
+	   //look at "myByte" and see if it is equal to the new line character 
+	   if(myByte == '\n'){
+	       
+	   //split the string and parse it into our variables 
+	   
+	   std::vector < std::string> myTokens = ofSplitString(myBuffer, ",");
+	   if(myTokens.size() == 4){
+	       //we have the right number of tokens, so we can move forward
+	       R = ofToInt(myTokens[0]) / 4;
+	       G = ofToInt(myTokens[1]) / 4;
+	       B = ofToInt(myTokens[2]) / 4;
+	       L = ofToInt(myTokens[3]) / 4;
+	   }
+	   else{
+	       //we have the wrong number of tokens, so we can parse ofxThreadedImageLoader
+	   }
+	   myBuffer.clear();
+	   
+	   }
+	   else{
+	       
+	       //if it is not a new line then save the character for later processing
+	       myBuffer += myByte;
+	       
+	   }
+	}
+}

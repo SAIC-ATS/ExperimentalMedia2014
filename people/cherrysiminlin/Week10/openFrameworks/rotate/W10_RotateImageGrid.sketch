@@ -1,0 +1,24 @@
+ofImage image;
+
+void setup() {
+    ofBackground(255);
+	ofSetWindowShape(750,720);
+	image.loadImage("png.png");
+	float mouseX = ofGetMouseX();
+    float mouseY = ofGetMouseY();
+}
+
+void draw() {
+    for (int i = 1; i < 7; i++){
+        for (int j = 1; j < 7; j++){
+            float mouseAngleRad = atan2(mouseY - (100*i), 
+                                mouseX - (100*j));
+            ofPushMatrix();
+            ofTranslate(100*i, 100*j);
+            ofRotateZ(ofRadToDeg(mouseAngleRad));
+            image.draw(-image.getWidth()/2, -image.getHeight()/2);
+            ofPopMatrix();
+        }
+    }
+
+}
