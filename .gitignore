@@ -53,8 +53,11 @@ example/obj
 [Rr]elease/
 x64/
 build/
-[Bb]in/
+[Bb]in/*
 [Oo]bj/
+
+# Exception for the data folder of openFrameworks projects
+!bin/data/
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
