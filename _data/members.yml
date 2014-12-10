@@ -8,6 +8,20 @@
     twitter: bakercp
     github: bakercp
     bio: Christopher Baker is an Artist.
+<<<<<<< HEAD
+    
+-	username: JaradS
+    role: Student
+    name: Jarad Solomon
+    display_name: Jarad Solomon
+    gravatar: 
+    email: jsolom@saic.edu
+    web: jaradsolomon.co
+    twitter: 
+    github: JaradS
+    bio: french fries
+
+=======
 
 -   username: semishen
     role: Grad student
@@ -54,3 +68,4 @@
     web: http://cargocollective.com/sdekoninck
     twitter: 
     github: sdekoninck
+>>>>>>> 125cb646995f26e48355a5520dc88c8554ad03d6

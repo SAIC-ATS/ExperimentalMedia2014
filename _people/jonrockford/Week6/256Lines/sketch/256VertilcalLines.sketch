@@ -1,0 +1,79 @@
+# define points 256
+
+bool space;
+ofSerial serial;
+float data = 0;
+int r, g, b, ra, ga, ba;
+void setup() {
+	// put your setup code here, to run once:
+	serial.setup(0, 9600);
+	ofSetWindowShape(1024, 768);
+	ofBackground(125,125,125);
+	ofSetFrameRate(30);
+	
+	
+    
+        r = 255;
+        g = 0;
+        b = 0;
+        
+        ra = 225;
+        ga = 225;
+        ba = 0;
+
+	
+}
+void draw() {
+	// put your main code here, to run once each frame:
+		//---------------------------  lines
+	// a bunch of red lines, make them smooth if the flag is set
+	if (serial.available()) {
+	       data = serial.readByte();
+	       serial.flush();
+    }
+        // vector<string> pots;
+        // pots.push_back(data);
+        // vector<string>::iterator = pots.begin();
+        // ofToInt (pots);
+       
+        
+	    for (int i = 0; i <points; i++){
+		
+		ofSetColor(r, g, b);
+		    if ( i % 2 == 0 ){
+		    ofSetColor(ra, ga, ba);
+		    
+		   }
+		   ofLine(i*5, data*3, i*5, 700);
+	    }
+	    r = 255;
+        g = 0;
+        b = 0;
+        
+        ra = 225;
+        ga = 225;
+        ba = 0;
+        
+        if (space){
+            r = 0;
+        g = 0;
+        b = 0;
+        
+        ra = 255;
+        ga = 255;
+        ba = 255;
+       
+	}
+}
+	
+void keyPressed(int key)
+{
+      
+       if (' ' == key) {
+           space = true;
+           
+        }
+       }
+	
+
+
