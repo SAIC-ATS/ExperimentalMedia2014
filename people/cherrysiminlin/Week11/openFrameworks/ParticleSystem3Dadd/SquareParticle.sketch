@@ -1,0 +1,27 @@
+#pragma once
+#include "BaseParticle.h"
+
+class SquareParticle: public BaseParticle {
+
+public:
+    SquareParticle()
+
+    {
+    }
+
+
+	virtual ~SquareParticle(){
+	}	
+	
+	virtual void update(){
+	}
+	
+	virtual void draw()
+    {  
+        ofPushStyle();
+        ofFill();
+        ofSetColor(color);
+        ofDrawBox(position, width, height, depth);
+        ofPopStyle();
+    }
+};
