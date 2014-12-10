@@ -1,0 +1,52 @@
+#line 1 "squareParticle"
+
+#include "ofMain.h"
+#include "BaseParticle.h"
+
+
+#line 2 "squareParticle"
+#pragma once
+
+class squareParticle: public BaseParticle{
+
+public:    
+	squareParticle():
+        drag(0.999),
+	    bounciness(0.2),
+	    width(20),
+	    height(20),
+	    depth(20)   
+    {   
+    }
+	    
+	virtual ~squareParticle()
+    {
+    }
+
+    virtual void update() 
+    {
+        velocity += acceleration;   
+        velocity *= drag;
+        position += velocity; 
+    }
+    
+    virtual void draw()
+    {  
+        ofPushStyle();
+        ofFill();
+        ofSetColor(color);
+        ofDrawBox(position, width, height, depth);
+        ofPopStyle();
+    }
+    
+    
+    float drag;
+    float bounciness;
+
+    float width;
+    float height;
+    float depth;
+    
+    ofColor color;
+};
+
