@@ -1,0 +1,40 @@
+float radius;
+float spiral = 10;
+float lastX;
+float lastY;
+float angle;
+float x;
+float y;
+
+void setup() {
+	// put your setup code here, to run once:
+	ofSetWindowShape(400, 400);
+	ofSetFrameRate(60);	
+}
+
+void draw() {
+
+    ofBackground(255);
+
+    float centerX = (ofGetWidth()/2);
+    float centerY = (ofGetHeight()/2);
+
+    lastX = centerX;
+    lastY = centerY;
+
+    for(angle = 0; angle < 360*spiral; angle++)
+    {
+        radius = ofMap(angle, 0, 360*spiral, 0, ofGetWidth()/2);
+
+        float angleRad = ofDegToRad(angle);
+        
+        float x = (radius * cos(angleRad) + centerX); // maths to get x with the angle
+        float y = (radius * sin(angleRad) + centerY);
+
+	    ofSetColor(0);
+	    ofLine(x, y, lastX, lastY);
+	    
+        lastX = x;
+        lastY = y;
+    }
+}

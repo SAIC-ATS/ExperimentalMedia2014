@@ -1,0 +1,58 @@
+#include "baseparticle.h" // the process of setting up and telling the compiler to get the baseparticle page. 
+#include "squareparticle.h"
+
+// std::vector <std::shared_ptr<baseparticle> > particles; 
+int numberofparticles;
+int numberofsquares;
+
+//vector <squareparticle> particles;
+vector <baseparticle> baseparticles;
+vector <squareparticle> squareparticles;
+
+
+void setup() {
+	// put your setup code here, to run once:
+	ofSetWindowShape(800, 800);
+	
+	numberofparticles = 100;
+	numberofsquares = 100;
+ }
+
+void update() {
+    
+    if (baseparticles.size() < numberofparticles)
+    {
+        baseparticles.push_back(baseparticle());
+    }
+    
+    if (squareparticles.size() < numberofparticles)
+    {
+        squareparticles.push_back(squareparticle());
+    }
+    
+    for(int i = 0; i<baseparticles.size(); i++)
+    {
+        baseparticles[i].update();
+    }
+    
+     for(int i = 0; i<squareparticles.size(); i++)
+    {
+        squareparticles[i].update();
+    }
+ 
+ 
+}
+void draw() {
+	// put your main code here, to run once each frame:
+	ofBackground(0);
+	 
+    for(int i = 0; i<baseparticles.size(); i++)
+    {
+        baseparticles[i].draw();
+    }
+    
+    for(int i = 0; i<squareparticles.size(); i++)
+    {
+        squareparticles[i].draw();
+    }
+}

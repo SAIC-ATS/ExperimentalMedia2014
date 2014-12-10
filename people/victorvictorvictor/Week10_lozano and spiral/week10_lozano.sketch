@@ -1,0 +1,55 @@
+float angleRad;
+float radius;
+
+ofColor color;
+
+void setup() {
+	// put your setup code here, to run once:
+	ofSetWindowShape(400, 400);
+	ofSetFrameRate(60);
+	
+	angleRad = 0;
+	radius = 150;
+	
+	color = ofColor(ofRandom(255), ofRandom(100, 255), ofRandom(255), ofRandom(100, 200));
+	
+}
+
+void draw() {
+	// put your main code here, to run once each frame:
+	ofBackground(0);
+	
+	ofSetColor(color);
+	
+	float cursorX = ofGetMouseX();
+    float cursorY = ofGetMouseY();
+	
+	int pointX = 10;
+    int pointY = 10;
+    
+    float spaceX = ofGetWidth()/ (pointX + 1);
+    float spaceY = ofGetHeight()/ (pointY + 1);
+    
+    for(int x = 0; x < pointX; x ++)
+    {
+        for(int y = 0; y < pointY; y++)
+        {
+            float xPosition = (x + 1) * spaceX;
+            float yPosition = (y + 1) * spaceY;
+            
+            float newX = cursorX - xPosition;
+            float newY = cursorY - yPosition;
+        
+            float angleRadians = atan2(newY, newX);
+        
+    
+    	    ofPushMatrix();
+	        ofTranslate(xPosition, yPosition);
+            ofRotateZ(ofRadToDeg(angleRadians));
+            ofColor(255,255, 255,50);
+            ofEllipse(0, 0, 20, 8);
+	        ofPopMatrix();
+        }
+    }
+}
+    

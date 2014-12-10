@@ -1,0 +1,79 @@
+#pragma once
+
+class squareparticle{ 
+public:
+	
+	ofVec2f position;
+    ofVec2f velocity;
+    ofVec2f acceleration;
+    
+    float drag;
+    float rebound;
+    float radius;
+    float angle;
+    
+    ofColor color;
+    
+	squareparticle(): position(ofGetWidth()/2, 0){
+	    
+	    velocity = ofVec2f(ofRandom(-5, 5), ofRandom(-5, 5));
+        acceleration = ofVec2f(0, ofRandom(0.001, 0.01));
+        
+        color = ofColor(ofRandom(100, 255), ofRandom(255), ofRandom(255), ofRandom(100, 200));
+        
+        rebound = ofRandom(0.9, 0.99);
+        drag = ofRandom(0.99, 0.999);
+	}
+	
+	
+	virtual ~squareparticle(){
+	}
+
+    virtual void update(){
+        
+        velocity += acceleration;   
+        velocity *= drag;
+        position += velocity; 
+        
+        //X
+        
+        if ((position.x+radius) > ofGetWidth())
+        {
+            velocity.x*=-rebound;
+            position.x = ofGetWidth() - radius;
+        }
+    
+        if ((position.x-radius) < 0)
+        {
+            velocity.x*=-rebound;
+            position.x = radius;
+        }
+        
+        //Y
+        
+        if ((position.y+radius) > ofGetHeight())
+        {
+            velocity.y*=-rebound;
+            position.y = ofGetHeight() - radius; 
+        }
+        
+        if ((position.y-radius) < 0)
+        {
+            velocity.y*=-rebound;
+            position.y = radius; 
+        } 
+    }
+    
+    virtual void draw(){
+        
+        ofFill();
+        ofSetColor(color);
+        ofPushMatrix();
+        ofTranslate(position.x, position.y);
+        angle += ofRandom(0, 100);
+        ofRotateZ(angle);
+        ofRect(0, 0, 20, 20);
+        ofPopMatrix();
+    }
+ 
+};
