@@ -1,0 +1,46 @@
+#line 1 "DrawLines"
+
+#include "ofMain.h"
+
+
+class ofApp: public ofBaseApp
+{
+public:
+
+#line 1 "DrawLines"
+int x[255]; // Create array for 256 x positions of lines
+int w; // Variable for window width
+int h; // Variable for window height
+
+
+void setup() {
+	// put your setup code here, to run once:
+	w = 256;
+    h = 256;
+	ofBackground(255);
+	ofSetWindowShape(w, h);
+	ofFill();
+}
+
+void draw() {
+	// put your main code here, to run once each frame:
+    for (int x = 0; x < 256; x++){ //loop through 256 x positions
+        // ofSetColor(255-x); // Create gradient from white to black
+        if ( x % 2 == 0 ) { // Check if number is even with modulus
+            ofSetColor(255, 255, 0); // Make even lines yellow
+        } else {
+            ofSetColor(255, 0, 0); // Or make odd lines re
+        }
+        ofLine(x, 0, x, h);
+    	}	
+}
+
+
+};
+
+int main()
+{
+    ofSetupOpenGL(320, 240, OF_WINDOW);
+    ofRunApp(new ofApp());
+}
+

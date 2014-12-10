@@ -4,4 +4,4 @@ url: https://bakercp.github.io/ExperimentalMedia2014
 description: Experimental Media, 2014
 timezone: America/Chicago
 gems:
-  - jekyll-sitemap
+    - jekyll-sitemap

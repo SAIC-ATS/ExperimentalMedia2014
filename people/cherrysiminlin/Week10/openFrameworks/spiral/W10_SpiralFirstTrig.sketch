@@ -1,0 +1,25 @@
+void setup() {
+    ofSetWindowShape(400, 400);  
+}
+
+void draw() {
+    ofBackground(0);
+    float centerX = ofGetWidth() / 2;
+    float centerY = ofGetHeight() / 2;
+    float x = ofGetWidth()/8.8;
+    float y = ofGetHeight()/8.8;
+    
+    ofSetRectMode(OF_RECTMODE_CENTER);
+    ofNoFill();
+    ofPushMatrix();
+        ofTranslate(centerX, centerY);  // Translate to the center of the screen
+        for (int i=0; i<10; i++) {
+            ofSetColor(255, i*25, 0);
+            ofScale(1.2, 1.2);
+            ofRotate(22.5);
+            ofRect(0, 0, x, y);
+            ofSetColor(255, i*25, 0);
+        }
+    ofPopMatrix();
+}
+

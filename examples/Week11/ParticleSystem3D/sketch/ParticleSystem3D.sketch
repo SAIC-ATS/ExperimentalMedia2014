@@ -1,0 +1,158 @@
+#include "BaseParticle.h"
+
+std::vector<std::shared_ptr<BaseParticle> > particles;
+
+float boxWidth;
+float boxHeight;
+float boxDepth;
+
+float halfBoxWidth;
+float halfBoxHeight;
+float halfBoxDepth;
+
+ofEasyCam cam;
+
+void setup() {
+    ofSetWindowShape(1000, 1000);
+    
+    ofEnableDepthTest();
+    
+    boxWidth = 400; // This is the size in the x dimension
+    boxHeight = 400; // This is the size in the y dimension
+    boxDepth = 400; // This is the size in the z dimension
+    
+    halfBoxWidth = boxWidth / 2;
+    halfBoxHeight = boxHeight / 2;
+    halfBoxDepth = boxDepth / 2;
+
+    for (int i = 0; i < 100; i++)
+    {
+        std::shared_ptr<BaseParticle> pParticle(new BaseParticle());
+        
+        pParticle->position.x = ofRandom(-halfBoxWidth, halfBoxWidth);
+        pParticle->position.y = ofRandom(-halfBoxHeight, halfBoxHeight);
+        pParticle->position.z = ofRandom(-halfBoxDepth, halfBoxDepth);
+        pParticle->velocity.x = ofRandom(-10, 10);
+        pParticle->velocity.y = ofRandom(-10, 10);
+        pParticle->velocity.z = ofRandom(-10, 10);
+
+        pParticle->drag = ofRandom(0.90, 0.99);
+        
+        float size = ofRandom(10, 30);
+        
+        pParticle->width = size;
+        pParticle->height = size;
+        pParticle->depth = size;
+
+        float r = ofRandom(255);
+        float g = ofRandom(255);
+        float b = ofRandom(255);
+        float a = ofRandom(127, 255);
+        
+        pParticle->color = ofColor(r, g, b, a);
+        
+        particles.push_back(pParticle);
+    }
+    
+}
+
+
+void update() {
+
+    // Calculate gravity vector.
+    ofQuaternion o = cam.getOrientationQuat();
+    ofVec3f gravity(0, .1, 0); // Modify this to change gravity.
+    gravity = gravity * o;
+    
+    for (int i = 0; i < particles.size(); i++)
+    {
+        particles[i]->acceleration = gravity;        
+        particles[i]->update();
+
+        float halfWidth = particles[i]->width / 2;
+        float halfHeight = particles[i]->height / 2;
+        float halfDepth = particles[i]->depth / 2;
+            
+        if (particles[i]->position.x + halfWidth > halfBoxWidth)
+        {
+            particles[i]->velocity.x *= -1;
+            particles[i]->velocity.x *= particles[i]->bounciness;
+            particles[i]->position.x = halfBoxWidth - halfWidth;
+        }
+        else if (particles[i]->position.x - halfWidth < - halfBoxWidth)
+        {
+            particles[i]->velocity.x *= -1;
+            particles[i]->velocity.x *= particles[i]->bounciness;
+            particles[i]->position.x = - halfBoxWidth + halfWidth;
+        }
+        
+        if (particles[i]->position.y + halfHeight > halfBoxHeight)
+        {
+            particles[i]->velocity.y *= -1;
+            particles[i]->velocity.y *= particles[i]->bounciness;
+            particles[i]->position.y = halfBoxHeight - halfHeight;
+
+        }
+        else if (particles[i]->position.y - halfHeight < - halfBoxHeight)
+        {
+            particles[i]->velocity.y *= -1;
+            particles[i]->velocity.y *= particles[i]->bounciness;
+            particles[i]->position.y = - halfBoxHeight + halfHeight;
+        }
+        
+        if (particles[i]->position.z + halfDepth > halfBoxDepth)
+        {
+            particles[i]->velocity.z *= -1;
+            particles[i]->velocity.z *= particles[i]->bounciness;
+            particles[i]->position.z = halfBoxDepth - halfDepth;
+        }
+        else if (particles[i]->position.z - halfDepth < - halfBoxDepth)
+        {
+            particles[i]->velocity.z *= -1;
+            particles[i]->velocity.z *= particles[i]->bounciness;
+            particles[i]->position.z = - halfBoxDepth + halfDepth;
+        }
+    }
+}
+
+
+void draw() {
+    ofBackground(0);
+    
+    cam.begin();
+        
+    ofPushStyle();
+    ofFill();
+    ofSetColor(127);
+    ofDrawAxis(100);
+    ofPushMatrix();
+    ofNoFill();
+    ofDrawBox(0,0,0,
+              boxWidth,
+              boxHeight,
+              boxDepth);
+    ofPopStyle();
+    
+    for (int i = 0; i < particles.size(); i++)
+    {
+        particles[i]->draw();
+    }
+    
+    ofPopMatrix();
+    cam.end();
+    
+    
+}
+
+void keyPressed(int key)
+{
+    if ('e' == key)
+    {
+        for (int i = 0; i < particles.size(); i++)
+        {
+            particles[i]->velocity.x += ofRandom(-4, 4);
+            particles[i]->velocity.y += ofRandom(-4, 4);
+            particles[i]->velocity.z += ofRandom(-4, 4);
+        }
+    }
+}
