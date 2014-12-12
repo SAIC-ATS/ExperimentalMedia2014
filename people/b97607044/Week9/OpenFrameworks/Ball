@@ -1,0 +1,107 @@
+class Ball{
+    
+public:
+
+    ofVec3f position;
+    ofVec3f velocity;
+    
+    int radius;
+    float rebound;
+    float drag;
+    float accelerationX;
+    float accelerationY;
+    float accelerationZ;
+    
+    ofColor color;
+    
+    Ball() {
+        
+        radius = ofRandom(25);
+        
+        // Choose a random position.
+        position = ofVec3f(ofRandom(radius, ofGetWidth() - radius), 
+                           ofRandom(radius, ofGetHeight() - radius),
+                           ofRandom(radius, ofGetHeight() - radius));
+                           
+        // Choose a random velocity.
+        velocity = ofVec3f(ofRandom(-5, 5), ofRandom(-5, 5),ofRandom(-5, 5));
+        
+        //Choose a acceleration
+        accelerationX = 0;
+        accelerationY = 0.003;
+        accelerationZ = 0.003;
+      
+        // Choose a random color between red and yellow.
+        color = ofColor(255, ofRandom(255), 0, 255);
+        
+        rebound = 0.9;
+        drag = 0.99;
+    
+    }
+    
+    void update() {
+        if (ofGetMousePressed()){
+            //x = ofGetMouseX();
+            //y = ofGetMouseY();
+            velocity.x = ofRandom(-10, 10);
+            velocity.y = ofRandom(-1, -15);
+            velocity.z = ofRandom(-1, -10);
+            return;
+        }
+        
+        //add the acceleration component to velocity
+        velocity.x = velocity.x + accelerationX;
+        velocity.y = velocity.y + accelerationY;
+        velocity.z = velocity.z + accelerationZ;
+    
+        velocity.x = velocity.x * drag;//take away a little bit of velocity based on drag
+        velocity.y = velocity.y * drag;//so that
+        velocity.z = velocity.z * drag;
+    
+        //add the velocity component to x and y position
+        position.x = position.x + velocity.x;
+        position.y = position.y + velocity.y;
+        position.z = position.z + velocity.z;
+    
+        if ((position.x - radius) < 0){ //left wall
+            velocity.x = velocity.x * -rebound;
+            position.x = radius; //set the ball in the right place.
+        }
+    
+        if ((position.x + radius) > ofGetWidth()){ //right wall
+            velocity.x = velocity.x * -rebound;
+            position.x = ofGetWidth() - radius;//set the ball in the right place.
+        }
+    
+        if ((position.y - radius) < ofGetHeight()/1.99){ //bottum wall
+            velocity.y = velocity.y * -rebound;
+            position.y = radius;//set the ball in the right place.
+        }
+    
+        if ((position.y + radius)> ofGetHeight()){ //top wall
+            velocity.y = velocity.y * -rebound;
+            position.y = ofGetHeight() - radius;//set the ball in the right place.
+            
+        }
+
+  
+    
+    }
+
+    void draw() {
+        ofFill();   
+        // Set the fill color for this ball.
+        ofSetColor(ofRandom(250),ofRandom(250),ofRandom(250), 120);
+        
+        // Draw the ball.
+        ofCircle(position, radius);
+        
+        ofNoFill(); 
+        // Set the outline for this ball.
+        ofSetColor(color,180); 
+        // Draw the ball.
+        ofCircle(position, radius); 
+    
+    }
+
+};
