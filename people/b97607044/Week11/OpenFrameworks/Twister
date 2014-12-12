@@ -1,10 +1,14 @@
+
+
 void setup() {
-   ofSetWindowShape(800, 800); 	
+   ofSetWindowShape(720, 720); 	
+   ofSetFrameRate(10);
+
 }
 
 void draw() {
 
-	ofBackground(0); 
+
 	
 	int numX= 50; 
 	int numY= 50;
@@ -12,12 +16,14 @@ void draw() {
 	
 	float spaceX = ofGetWidth() / (numX + 1); 
 	float spaceY = ofGetHeight() / (numY + 1); 
+	
 
 	
 	float cursorX = ofGetMouseX(); 
 	float cursorY = ofGetMouseY(); 
 
-	
+
+    ofBackground(ofGetMouseX(),ofGetMouseY(),ofRandom(250),250); 	
 	
 	for(int y = 0; y < numY; y ++ ) 
 	{
@@ -31,18 +37,19 @@ void draw() {
 	    float adjustedY = cursorY - yPosition; 
 
 	    float angleRadians = atan2(adjustedY, adjustedX); 
-	    
+
 	    ofPushMatrix(); 
 	    ofTranslate(xPosition, yPosition); 
 	    ofRotateZ(ofRadToDeg(angleRadians)); 
-        
+     
         ofSetColor(0, ofGetMouseX(), ofGetMouseY()); 
-        ofLine(0, 0, 2, 0); 
-	    ofSetColor( ofGetMouseX(), ofGetMouseY(), 255); 
-	      ofEllipse(1, 2, 1, 2);
+        ofLine(10,10, 130,0); 
+	    ofSetColor( ofGetMouseX(), ofGetMouseY(), 0); 
+	      ofEllipse(2, 10, 5, 2);
 	    
 	    ofPopMatrix(); 
 } 
 
 } 
 }
+
