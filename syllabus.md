@@ -49,7 +49,7 @@ __Key goals include:__
 - Working knowledge of intermediate linux/unix OS features (scripting, terminal, automation, etc)
 - Building camaraderie between first year students and their classmates.
 
-### Methodology 
+### Methodology
 Using individual in-lab and home assignments, class presentations, lectures, discussions, assigned readings, group and individual desk critiques, students will experience multiple aspects of interactive design.  Visiting artists / faculty may enhance the experience and offer additional perspectives.
 
 ### Assignments
@@ -161,28 +161,11 @@ _(subject to change based on incoming skills and experience)_
     - Anatomy of an Addon
         - openFrameworks
         - Arduino
-    - Compiling: Under the hood
-        - `*.h` + `*.cpp`
-        - If Arduino is C++, why don't we have `*.h` / `*.cpp` files?
-        - Preprocessor
-            - An an opportunity conditionally manipulate the text of your code BEFORE it is compiled.
-            - What are _macros_?
-            - What is a preprocessor variable?
-            - Where do preprocessor variables come from?
-            - Preprocessor variables / macros often look like `__APPLE_CC__`.
-            - Important preprocessor variables 
-                - `#include`
-                - `#pragma once` vs. `#ifndef FOO ...`
-        - Compiler
-            - The process of translating our C++ langauge instructions (code) into hardware-specific instructions (code).
-            - Usually produces object (`*.o`) files, usually behind the scenes.
-        - Linker
-            - Fuses all of the compiled object files and libraries (including 3rd party libraries) into an executable application.
     - Programming syntax, a comparative study
         - Basic Output (Part 1)
-        - openFrameworks: 
+        - openFrameworks:
             - Drawing: shapes
-        - Arduino: 
+        - Arduino:
             - Blinking!
             - Analog Input
             - Digital Input
@@ -196,25 +179,42 @@ _(subject to change based on incoming skills and experience)_
         - What is 9600 baud?
 
 #### Week 5
+- Drawing intro w/ Andrew Kaye
+
+#### Week 6
 - Bookkeeping
-    - Sometimes _closed_ issues may have the answer you are looking for.  
     - DIY Orientations
         - ATS Kinetics Lab Orientation/Authorization (go down during open access @ 4:15 ... be there @ the beginning!)
         - ATS I/O Lab Orientation/Authorization ()
         - CNC / Shop / Orientation [(http://www.artic.edu/webspaces/portal/irfm/shops.html]())
         - Advanced Output Center Orientation [http://crit.artic.edu/aoc/faq.php](http://crit.artic.edu/aoc/faq.php)
-- Concepts: Doing things without delays.
+- Compiling: Under the hood
+    - `*.h` + `*.cpp`
+    - If Arduino is C++, why don't we have `*.h` / `*.cpp` files?
+    - Preprocessor
+        - An opportunity conditionally manipulate the text of your code BEFORE it is compiled.
+        - What are _macros_?
+        - What is a preprocessor variable?
+        - Where do preprocessor variables come from?
+        - Preprocessor variables / macros often look like `__APPLE_CC__`.
+        - Important preprocessor variables
+            - `#include`
+            - `#pragma once` vs. `#ifndef FOO ...`
+    - Compiler
+        - The process of translating our C++ langauge instructions (code) into hardware-specific instructions (code).
+        - Usually produces object (`*.o`) files, usually behind the scenes.
+    - Linker
+        - Fuses all of the compiled object files and libraries (including 3rd party libraries) into an executable application.
 - Basic Output w/ Arduino (Part 2)
     - Looping, Timing, Repetition and Iteration in openFrameworks+Arduino
     - delays
     - interrupts vs. polling
     - `for` / `while` / `do` `while`
     - Basic Input and Behaviors
-- openFrameworks: 
-    mouse, 
-    keyboard, 
+- openFrameworks:
+    mouse,
+    keyboard,
     switches from the Arduino
-
 
 ---
 
@@ -222,7 +222,7 @@ _(subject to change based on incoming skills and experience)_
     - e.g. [http://www.inventables.com/](http://www.inventables.com/) 
 
 
-#### Week 6
+#### Week 7
 - Object-Oriented-Programming (OOP) vs. ?
     - `ofRect` vs. `ofRectangle`
 - What is a `class`? (what is a `struct`?)
@@ -269,7 +269,7 @@ _(subject to change based on incoming skills and experience)_
 -   repetition
 -   randomness
 
-#### Week 7
+#### Week 9
 
 -   Advanced Programming Theory / Syntax
 
@@ -278,10 +278,6 @@ _(subject to change based on incoming skills and experience)_
 -   Functions
 -   OOP (Object oriented programming), Classes, Objects
 -   Arrays
-
-#### Week 8
-
--   Advanced Programming Theory / Syntax (continued)
 
 #### Week 9
 
@@ -320,7 +316,7 @@ _(subject to change based on incoming skills and experience)_
 -   Advanced sensor/device communication SPI
 -   Advance IC interfacing / Bitbanging (bitwise operators)
 
--   
+-
 
 #### Week 13
 
@@ -350,5 +346,3 @@ _(subject to change based on incoming skills and experience)_
 #### Week 15
 
 -   Advanced Topics and Integration (continued)
-
-

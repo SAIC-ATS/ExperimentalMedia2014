@@ -1,0 +1,96 @@
+int alpha;
+int width, height;
+
+int circleX[50];//already set up array!!
+int circleY[50];
+
+bool oneShot;
+
+void setup() {
+	ofSetWindowShape(800,800);
+	ofBackground(120,120,120); //if draw loop doesn't happen again, the background will overlap old drawings and make screen looks like empty
+	ofSetFrameRate(60); //set as delay???
+	ofEnableAlphaBlending(); //work with adobe alpha channals
+	alpha = 120;
+	width = ofGetWindowWidth();
+	height = ofGetWindowHeight();
+	oneShot = false;
+	
+	//new way of set up array number
+	for ( int i = 0; i <50; i++){
+	    circleX[i] = ofRandom(width);
+	    circleY[i] = ofRandom(height);
+	}
+	
+	for ( int j = 0; j <50; j++){
+	    circleX[j] = ofRandom(width);
+	    circleY[j] = ofRandom(height);
+	}
+	
+//	circleX[0] = 50; old way of set up array number
+//	cirlceX[5] = 150;
+//	circleY[50]= 5;
+//	ofSetBackgroundAuto(false); //stop set background color again and again
+	
+}
+
+void draw() {
+	if (oneShot == true ){
+	    ofBeginSaveScreenAsPDF("myPDF"+ofGetTimestampString()+".pdf", false);
+	}
+	
+	
+	//get random dots
+//	ofSetColor(0,0,0,alpha);
+//	for ( int i = 0; i < 50; i++ ){
+//	    ofLogNotice ("draw a new circle") << i;
+//	    ofCircle(ofRandom(width), ofRandom(height),10);
+//	}
+	
+	ofSetColor(0,0,0,alpha);
+	for ( int i = 0; i < 50; i++ ){
+//	    ofLogNotice ("draw a new circle") << i;
+        for ( int j = 0; j < 50; j++){
+            
+	        ofCircle(circleX[i], circleY[i], 10);
+	        ofLine(circleX[i], circleY[i], circleX[j], circleY[j]);
+        }
+	}
+	
+	
+	
+	//get a line dot
+//	for ( int i = 0; i < 50; i++ ){
+//	    ofCircle(i*12, 100,5); //draw a dot line, manipulate it by changing variables
+//	}
+	
+	
+	//nest in a for loop: get a grid dot 
+//	for ( int i = 0; i < 50; i++ ){
+//	   	for ( int j = 0; j < 50; i++ ){
+//	    ofCircle(i*12, j*15, 5); 
+//	   	}
+
+	
+	
+	
+/*	if (oneShot){ //equas (oneShot == true)
+	    ofBeginSaveScreenAsPDF();
+	    oneShot = false;
+	}*/
+}
+
+
+
+void keyPressed( int key){
+    if ('s' ==key){
+        oneShot = true;
+    }
+    
+    if (' ' == key){
+        for (int i=0; i<50; i++){
+        circleX[i] = ofRandom(width);
+        circleY[i] = ofRandom(height);
+        }
+    }
+}
