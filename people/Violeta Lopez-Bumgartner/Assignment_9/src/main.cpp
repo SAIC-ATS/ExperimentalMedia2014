@@ -10,12 +10,18 @@ public:
 
 #line 2 "HelloWorld"
 
+
+
 int numBalls; // The total number of balls we'll use.
 
 vector<Ball> balls; // A collection of all balls.
 
 void setup() {
+    
+
     ofSetFrameRate(60);
+    
+    
     
     numBalls = 75; // The total number of balls we'll use.
     
@@ -49,6 +55,7 @@ void draw() {
     
     // Log a message.
     ofLogNotice("draw()") << ofGetTimestampString();
+ 
 }
 
 
