@@ -16,7 +16,6 @@
     gravatar:
     email: jsolom@saic.edu
     web: jaradsolomon.co
-    twitter:
     github: JaradS
     bio: french fries
 
@@ -81,10 +80,8 @@
     role: Student
     name: Sasha de Koninck
     display_name: Sasha de Koninck
-    gravatar:
     email: s.dekoninck@gmail.com
     web: http://cargocollective.com/sdekoninck
-    twitter:
     github: sdekoninck
 
 -   username: THEDREAMOFMEI
@@ -93,7 +90,6 @@
     display_name: THEDREAMOFMEI
     gravatar: 8f6ac7bc0f5c26b87269d442d5339206
     email: cyu6@saic.edu
-    web:
     twitter: thedreamofmei
     github: THEDREAMOFMEI
     bio: Mei is an Artist/Dreamer.
