@@ -8,15 +8,15 @@
     twitter: bakercp
     github: bakercp
     bio: Christopher Baker is an Artist.
-    
+
 -	username: JaradS
     role: Student
     name: Jarad Solomon
     display_name: Jarad Solomon
-    gravatar: 
+    gravatar:
     email: jsolom@saic.edu
     web: jaradsolomon.co
-    twitter: 
+    twitter:
     github: JaradS
     bio: french fries
 
@@ -27,7 +27,7 @@
     email: ssu1@saic.edu
     github: semishen
     bio: Semi Su is a Taiwanese.
-    
+
 -   username: jonrockford
     role: Student
     name: Jonathan Rockford
@@ -37,7 +37,7 @@
     twitter: jonrockford
     github: jonrockford
     bio: Jonathan Rockford is a surveyor of life.
-    
+
 -   username: cherrysiminlin
     role: Student
     name: Simin Lin
@@ -46,7 +46,7 @@
     instagram: cherrymemeda
     github: cherrysiminlin
     bio: designer-->architect!
-    
+
     username: dmunky
     role: Student
     name: Chester Ong
@@ -55,7 +55,7 @@
     instagram: chesterbing
     github: dmunky
     bio: industrial designer
-    
+
 -   username: mrado1
     role: Student
     name: Michael Rado
@@ -69,11 +69,11 @@
 -   username: SASHA
     role: Student
     name: Sasha de Koninck
-    display_name: Sasha de Koninck 
-    gravatar: 
+    display_name: Sasha de Koninck
+    gravatar:
     email: s.dekoninck@gmail.com
     web: http://cargocollective.com/sdekoninck
-    twitter: 
+    twitter:
     github: sdekoninck
 
 -   username: THEDREAMOFMEI
@@ -82,7 +82,11 @@
     display_name: THEDREAMOFMEI
     gravatar: 8f6ac7bc0f5c26b87269d442d5339206
     email: cyu6@saic.edu
-    web: 
-    twitter: thedreamofmei 
-    github:THEDREAMOFMEI
+    web:
+    twitter: thedreamofmei
+    github: THEDREAMOFMEI
     bio: Mei is an Artist/Dreamer.
+
+-   username: victorvictorvictor
+    name: victor wong
+    display_name: victor wong
