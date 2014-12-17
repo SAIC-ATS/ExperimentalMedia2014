@@ -10,17 +10,22 @@ public:
 
     ofVec2f position;
     ofVec2f velocity;
+    ofVec2f acceleration;
+    ofVec2f drag;
     
     int radius;
     
     ofColor color;
     
-    ofVec2f acceleration;
+    ofImage image;
+    
+    
     
     Ball() {
         
+        
         // Choose a random radius.
-        radius = ofRandom(5, 10);
+        radius = ofRandom(5, 80);
         
         // Choose a random position.
         position = ofVec2f(ofRandom(radius, ofGetWidth() - radius), 
@@ -33,6 +38,9 @@ public:
         color = ofColor(255, ofRandom(255), 0, 255);
         
         acceleration = ofVec2f(0, 1); 
+        
+        drag = ofVec2f(8, 6); 
+        image.loadImage( "Sprite-icon.png" );
     
     }
     
@@ -53,6 +61,7 @@ public:
         }
         
         // Update the position.
+        drag += acceleration;
         velocity += acceleration;
         position += velocity;
         
@@ -62,19 +71,23 @@ public:
     void draw() {
         ofFill();
     
-        // Set the fill color for this ball.
+        // // Set the fill color for this ball.
         ofSetColor(color.r, color.g, color.b, 127);
         
-        // Draw the ball.
+        // // Draw the ball.
         ofCircle(position, radius);
         
         ofNoFill();
         
-        // Set the outline for this ball.
+        // // Set the outline for this ball.
         ofSetColor(color);
         
-        // Draw the ball.
+        // // Draw the ball.
         ofCircle(position, radius); 
+        
+        image.draw(position.x, position.y, radius, radius);
+        image.setAnchorPercent(0.5, 0.5);
+
     
     }
 
