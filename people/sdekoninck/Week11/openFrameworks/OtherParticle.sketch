@@ -1,0 +1,8 @@
+class OtherParticle{
+
+public:
+
+	OtherParticle(){
+
+	}	
+};

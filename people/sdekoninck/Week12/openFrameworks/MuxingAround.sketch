@@ -1,0 +1,124 @@
+ofSerial mySerial;
+ofEasyCam cam;
+
+std::string myBuffer; //std means standard; it's a C++ thing
+int A = 0;//tilt sensor 1
+int B = 0;//tilt sensor 1
+int C = 0;//tilt sensor 1
+int D = 0;//tilt sensor 1
+int E = 0;//tilt sensor 2
+int F = 0;//tilt sensor 2
+int G = 0;//tilt sensor 2
+int H = 0;//tilt sensor 2
+int I = 0;//stretch sensor 1
+int J = 0;//strech sensor 2
+int K = 0;//stretch sesnor 3
+int L = 0;//pot
+int M = 0;//pressure sensor 1
+int N = 0;//pressure sensor 2
+int O = 0;//pressure sensor 3
+int P = 0;//pressure sensor 4
+
+void setup() {
+mySerial.setup(0, 9600);
+}
+
+void draw() {
+    ofSetWindowShape(1024, 1024);
+ofBackground(0);
+
+ofFill();
+ofSetColor(A, B, C, D);
+ofRect(A, B, C, D);//tilt sensor 1
+
+ofFill();
+ofSetColor(E, F, G, H);
+ofRect(E, F, G, H);//tilt sensot 2
+
+ofFill();
+ofSetColor(I, (I/2), (I*2));
+ofCircle(I, (I/2), (I *2));//stretch sesnor 1
+
+ofFill();
+ofSetColor(J, (J/2), (J*2));
+ofCircle(J, (J/2), (J*2));//stretch sensor 2
+
+ofFill();
+ofSetColor(K, (K/2), (K*2));
+ofCircle(K, (K/2), (K*2));//stretch sensor 3
+
+ofFill();
+ofSetColor(L, (L/2), (L*2));
+ofCircle(L, (L/2), (L*2));//pot
+
+ofFill();
+ofSetColor(M, (M/2), (M*2));
+ofCircle(M, (M/2), (M*2));//pressure sensor 1
+
+ofFill();
+ofSetColor(N, (N/2), (N*2));
+ofCircle(N, (N/2), (N*2));
+
+ofFill();
+ofSetColor(O, (O/2), (O*2));
+ofCircle(O, (O/2), (O*2));
+
+ofFill();
+ofSetColor(P, (P/2), (P*2));
+ofCircle(P, (P/2), (P*2));
+
+
+
+
+
+// Look at each incoming byte until no more are avaialble to look at.
+while (mySerial.available() >0)
+{
+   // Read the current byte and set it equal to "myByte"
+   int myByte = mySerial.readByte();
+   
+   // Look at "myByte" and see if it is equal to the new line character.
+   if (myByte == '\n')
+   {
+       std::cout << myBuffer << std::endl;
+       // split the string and parse it into our variables
+       std::vector<std::string> myTokens = ofSplitString(myBuffer, ",");
+       
+       if (myTokens.size() == 17)
+       {
+           // we have the right number of tokens, so we can move forward
+           A = ofToInt (myTokens[0]) / 4;
+           B = ofToInt (myTokens[1]) / 4;
+           C = ofToInt (myTokens[2]) / 4;
+           //C = ofToInt (myTokens[3]) / 4;
+           D = ofToInt (myTokens[3]);
+           E = ofToInt (myTokens[4]);
+           F = ofToInt (myTokens[5]);
+           G = ofToInt (myTokens[6]) / 4;
+           H = ofToInt (myTokens[7]) / 4;
+           I = ofToInt (myTokens[8]) / 4;
+           J = ofToInt (myTokens[9]);
+           K = ofToInt (myTokens[10]);
+           L = ofToInt (myTokens[11]);
+           M = ofToInt (myTokens[12]);
+           N = ofToInt (myTokens[13]);
+           O = ofToInt (myTokens[14]);
+           //P = ofToInt (myTokens[15]);
+       }
+       else{
+           // we have the wrong number of tokens, so we won't parse them   
+       }
+       
+       myBuffer.clear();
+       
+   }
+   else
+   {
+       // if it is not a new line, then save the character for later
+       myBuffer += myByte;
+       
+       
+  }
+   
+}
+}

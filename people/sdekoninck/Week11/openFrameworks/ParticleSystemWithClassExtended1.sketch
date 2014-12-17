@@ -1,0 +1,91 @@
+#include "BaseParticle1.h"
+#include "SquareParticle1.h"
+#include "OtherParticle.h"
+#include "FunkyParticle.h"
+
+ofEasyCam cam;
+
+std::vector<std::shared_ptr<BaseParticle1> > particles;
+void setup() {
+    ofSetWindowShape(800, 800);
+    for (int i = 0; i < 100; i++)
+    {
+    std::shared_ptr<BaseParticle1> pParticle(new BaseParticle1());
+    pParticle->position.x = ofRandomWidth();
+    pParticle->position.y = ofRandomHeight();
+    pParticle->position.z = 0.1;
+    pParticle->velocity.x = ofRandom(-10, 10);
+    pParticle->velocity.y = ofRandom(-10, 10);
+    pParticle->drag = 0.99;
+    particles.push_back(pParticle);
+    }
+    for (int i = 0; i < 100; i++)
+    {
+    std::shared_ptr<BaseParticle1> pParticle(new SquareParticle1());
+    pParticle->position.x = ofRandomWidth();
+    pParticle->position.y = ofRandomHeight();
+    pParticle->velocity.x = ofRandom(-10, 10);
+    pParticle->velocity.y = ofRandom(-10, 10);
+    pParticle->drag = 0.99;
+    particles.push_back(pParticle);
+}
+for (int i = 0; i < 100; i++)
+    {
+    std::shared_ptr<BaseParticle1> pParticle(new OtherParticle());
+    pParticle->position.x = ofRandomWidth();
+    pParticle->position.y = ofRandomHeight();
+    pParticle->position.z = 0.2;
+    pParticle->velocity.x = ofRandom(-10, 10);
+    pParticle->velocity.y = ofRandom(-10, 10);
+    pParticle->drag = 0.79;
+    particles.push_back(pParticle);
+    }
+    for (int i = 0; i < 100; i++)
+    {
+    std::shared_ptr<BaseParticle1> pParticle(new FunkyParticle());
+    pParticle->position.x = ofRandomWidth();
+    pParticle->position.y = ofRandomHeight();
+    pParticle->position.z = 0.5;
+    pParticle->velocity.x = ofRandom(-20, 20);
+    pParticle->velocity.y = ofRandom(-20, 20);
+    pParticle->drag = 0.89;
+    particles.push_back(pParticle);
+    }
+}
+
+void update() {
+    for (int i = 0; i < particles.size(); i++)
+    {
+    particles[i]->update();
+    
+    particles[i] -> acceleration.y = 0.2;
+    
+    if(particles[i] -> position.x > ofGetWidth()){
+        particles[i] -> velocity.x *= -1;
+        particles[i] -> position.x = ofGetWidth();
+    }
+    else if(particles[i] -> position.x < 0){
+        particles[i] -> velocity.x *= -1;
+        particles[i] -> position.x = 0;
+    }
+    if(particles[i] -> position.y > ofGetHeight()){
+        particles[i] -> velocity.y *= -1;
+        particles[i] -> position.y = ofGetHeight();
+    }
+    else if(particles[i] -> position.y< 0){
+        particles[i] -> velocity.y *= -1;
+        particles[i] -> position.y = 0;
+    }
+    
+    }
+    }
+void draw() {
+    ofBackground(0);
+    cam.begin();
+    
+    for (int i = 0; i < particles.size(); i++)
+    {
+    particles[i]->draw();
+    }
+    cam.end();
+    }

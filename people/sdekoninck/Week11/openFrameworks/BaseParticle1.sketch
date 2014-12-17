@@ -1,0 +1,27 @@
+#pragma once
+class BaseParticle1
+{
+public:
+BaseParticle1(): drag(0.9)
+{
+}
+virtual ~BaseParticle1()
+{
+}
+virtual void update()
+{
+velocity += acceleration;
+velocity *= drag;
+position += velocity;
+}
+virtual void draw()
+{
+ofFill();
+ofSetColor(255, 255, 0, 127);
+ofEllipse(position.x, position.y,position.z, 20, 20);
+}
+ofVec3f position;
+ofVec3f velocity;
+ofVec3f acceleration;
+float drag;
+};
