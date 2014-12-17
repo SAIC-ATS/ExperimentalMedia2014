@@ -1,0 +1,30 @@
+#pragma once
+
+#include "BaseParticle.h"
+
+class SquareParticle: public BaseParticle {
+public:
+	SquareParticle(): angle(ofRandom(360)) {
+	}	
+	
+	virtual ~SquareParticle()
+	{
+	}
+	
+    virtual void draw()
+    {  
+        angle += ofRandom(-.4, .4);
+        
+
+        
+        ofFill();
+        ofSetColor(200, 0, 100, 150);
+        ofPushMatrix();
+        ofTranslate(position.x, position.y);
+        ofRotateZ(angle);
+        ofRect(0, 0, 25, 25);
+        ofPopMatrix();
+    }
+    
+    float angle;
+};

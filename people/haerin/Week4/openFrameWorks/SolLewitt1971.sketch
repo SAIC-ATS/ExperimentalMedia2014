@@ -1,0 +1,62 @@
+
+int alpha;  
+int width, height; 
+int numPoints;
+
+int circleX[50]; 
+int circleY[50]; 
+int r[50]; 
+int g[50]; 
+int b[50]; 
+
+
+void setup() {
+    ofSetWindowShape(800, 800);
+      ofBackground(120, 120, 120);
+    ofEnableAlphaBlending();  
+    ofSetFrameRate(1);
+    
+    
+    numPoints = 50; 
+    alpha = 80;  
+  
+
+	width = ofGetWindowWidth(); 
+	height = ofGetWindowHeight();
+	
+	 ofBeginSaveScreenAsPDF("screenshot-"+ofGetTimestampString()+".pdf", false);
+  
+    
+    for( int i = 0; i <50; i++) {   
+	circleX[i]= ofRandom(width); 
+	circleY[i]= ofRandom(height); 
+	r[i] = ofRandom(100); 
+	g[i] = ofRandom(255); 
+	b[i] = ofRandom(255); 
+    }
+  
+     
+     
+   for( int i = 0; i < numPoints; i++ ) {  
+  for (int j = 1; j < numPoints; j++){
+      ofSetColor(r[i], g[i], b[i], alpha);
+   ofCircle( circleX[i], circleY[i], 10); 
+   ofLine(circleX[i], circleY[i], circleX[j], circleY[j]); 
+   }
+   }
+   
+   ofEndSaveScreenAsPDF();
+
+}
+
+
+void draw() {
+    
+ 
+   
+
+
+}
+
+
+
