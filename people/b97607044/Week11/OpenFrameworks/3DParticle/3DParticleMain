@@ -1,0 +1,161 @@
+#include "BaseParticle.h"
+#include "SquareParticle.h"
+
+std::vector<std::shared_ptr<BaseParticle> > particles;
+
+float Radius;
+float width;
+
+
+ofEasyCam cam; 
+ofSpherePrimitive sphere;
+
+void setup() {
+   
+    ofSetWindowShape(800, 800); 
+    ofEnableDepthTest();
+    
+    Radius = 800;
+    
+
+    for (int i = 0; i < 100; i++)
+    {
+        std::shared_ptr<BaseParticle> pParticle(new BaseParticle());
+        
+        pParticle->position.x = ofRandom(-Radius, Radius);
+        pParticle->position.y = ofRandom(-Radius, Radius);
+        pParticle->position.z = ofRandom(-Radius, Radius);
+        
+        
+        pParticle->velocity.x = ofRandom(-10, 100);
+        pParticle->velocity.y = ofRandom(-10, 100);
+        pParticle->velocity.z = ofRandom(-10, 100);
+
+        pParticle->drag = ofRandom(0.90, 0.99);
+
+
+        
+        particles.push_back(pParticle);
+    }
+    
+        for (int i = 0; i < 800; i++)
+    {
+        std::shared_ptr<BaseParticle> pParticle(new SquareParticle());
+        
+        pParticle->position.x = ofRandom(-Radius, Radius);
+        pParticle->position.y = ofRandom(-Radius, Radius);
+        pParticle->position.z = ofRandom(-Radius, Radius);
+        
+       
+        pParticle->velocity.x = ofRandom(-10, 10);
+        pParticle->velocity.y = ofRandom(-10, 10);
+        pParticle->velocity.z = ofRandom(-10, 10);
+
+        pParticle->drag = ofRandom(0.90, 0.99);
+
+        
+        particles.push_back(pParticle);
+    }
+    
+}
+
+
+void update() {
+//void testApp::setup(){
+
+   
+    ofQuaternion o = cam.getOrientationQuat();
+    ofVec3f gravity(-0.001, -0.001, -0.001); // Modify this to change gravity.
+    gravity = gravity * o;
+    
+    for (int i = 0; i < particles.size(); i++)
+    {
+        particles[i]->acceleration = gravity;        
+        particles[i]->update();
+        
+       float Radius = particles[i]->Radius/8;
+
+        
+        if (particles[i]->position.x > Radius)
+        {
+            particles[i]->velocity.x *= -1;
+            particles[i]->velocity.x *= particles[i]->bounciness;
+            particles[i]->position.x = Radius;
+        }
+        else if (particles[i]->position.x < -Radius)
+        {
+            particles[i]->velocity.x *= -1;
+            particles[i]->velocity.x *= particles[i]->bounciness;
+            particles[i]->position.x = -Radius;
+        }
+        
+        if (particles[i]->position.y > Radius)
+        {
+            particles[i]->velocity.y *= -1;
+            particles[i]->velocity.y *= particles[i]->bounciness;
+            particles[i]->position.y = Radius ;
+        }
+        else if (particles[i]->position.y < -Radius)
+        {
+            particles[i]->velocity.y *= -1;
+            particles[i]->velocity.y *= particles[i]->bounciness;
+            particles[i]->position.y = -Radius;
+        }
+     
+        if (particles[i]->position.z > Radius)
+        {
+            particles[i]->velocity.z *= -1;
+            particles[i]->velocity.z *= particles[i]->bounciness;
+            particles[i]->position.z = Radius;
+        }
+        else if (particles[i]->position.z < -Radius)
+        {
+            particles[i]->velocity.z *= -1;
+            particles[i]->velocity.z *= particles[i]->bounciness;
+            particles[i]->position.z = -Radius;
+        }
+            
+        
+        
+    
+    }
+    
+}
+
+
+void draw() {
+    ofBackground(ofGetMouseX()/1.5,ofGetMouseY()/2,150,1);
+    
+    cam.begin();
+        
+    ofPushStyle();
+    ofNoFill();
+    ofSetColor(200,100,140,ofRandom(100,250));
+   // ofDrawAxis(100);
+    ofPushMatrix();
+    ofNoFill();
+    ofDrawSphere(0,0,0,Radius/4);
+    ofPopStyle();
+    
+    for (int i = 0; i < particles.size(); i++)
+    {
+        particles[i]->draw();
+    }
+    
+    ofPopMatrix();
+    cam.end();
+      
+}
+
+void keyPressed(int key)
+{
+    if (' ' == key)
+    {
+        for (int i = 0; i < particles.size(); i++)
+        {
+            particles[i]->velocity.x += ofRandom(-4, 4);
+            particles[i]->velocity.y += ofRandom(-4, 4);
+            particles[i]->velocity.z += ofRandom(-4, 4);
+        }
+    }
+}
